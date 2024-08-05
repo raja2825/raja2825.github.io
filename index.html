@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="chat.css">
+    <title>Document</title>
+    
+</head>
+<body onload="strt()">
+    <div class="tot">
+    <div class="heading">
+      <h2>Bot Uh</h2>
+    </div>
+    <div id="field"></div>
+   <div class="bottom"> <input type="text" id="tex" placeholder="Chat with Bot uh">
+    <button id="send"> <i class="fa   fa-paper-plane"></i></button>
+</div>
+</div>
+</body>
+
+<script type="text/javascript">
+  
+  function strt() {
+    let msg = document.createElement("div");
+    msg.innerHTML="Hello Myself Bot Uh, How can I help you?" ;
+    msg.setAttribute("class","lef");
+ 
+    document.getElementById('field').appendChild(msg);
+}
+function chatbot(s) {
+    let a = "";
+    a = s.toLowerCase();
+    if (a.includes("hello") || a.includes("hi")) {
+      return "Hello, nice to meet you!";
+    } 
+    else if (a.includes("how are you")) {
+
+      return "I'm doing fine, thank you for asking.";
+
+    } 
+    else if (a.includes("what is your name") ) {
+
+      return "My name is Bot Uh, I'm a chatbot.";
+
+    } 
+  else if(a.includes("who are you")){
+    return "I'm a chat bot and my name is Bot Uh";
+  }
+    else if (a.includes("what can you do")) {
+
+      return "I can chat with you and answer some simple questions.";
+
+    } 
+    else if (a.includes("tell me a joke")) {
+
+      return "Why did the chicken go to the seance? To get to the other side.";
+    } 
+    else {
+
+      return "Sorry, I don't understand that. Please try something else.";
+    }
+   
+  }
+ 
+document.getElementById('send').addEventListener("click", async (e) => {
+    e.preventDefault();
+ 
+    var req = document.getElementById('tex').value ;
+ 
+    if (req == undefined || req== "") {
+ 
+    }
+    else{
+     
+       
+           
+        let data_req = document.createElement('div');
+        let data_res = document.createElement('div');
+ 
+        let container1 = document.createElement('div');
+        let container2 = document.createElement('div');
+ 
+        container1.setAttribute("class","msgCon1");
+        container2.setAttribute("class","msgCon2");
+     let res=chatbot(req);
+        data_req.innerHTML = req ;
+        data_res.innerHTML = res ;
+ 
+ 
+        data_req.setAttribute("class","rig");
+        data_res.setAttribute("class","lef");
+ 
+        let message = document.getElementById('field');
+ 
+         
+        message.appendChild(container1);
+        message.appendChild(container2);
+ 
+        container1.appendChild(data_req);
+        container2.appendChild(data_res);
+ 
+        document.getElementById('tex').value = "";
+ 
+    function scroll() {
+        var scrollMsg = document.getElementById('field')
+        scrollMsg.scrollTop = scrollMsg.scrollHeight ;
+    }
+    scroll();
+ 
+    }
+ 
+ 
+    });
+</script>
+</html>
